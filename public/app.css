@@ -1,0 +1,28 @@
+
+
+#content {
+	text-align : center ;
+	padding-top : 15% ;
+	border : 0px solid black ;
+}
+
+#contenta {
+	text-align : center ;
+	padding-top : 15% ;
+	border : 0px solid black ;
+}
+h1 {
+	font-family: 'Rowdies', cursive;
+
+
+}
+p {
+	font-family: 'Josefin Sans', sans-serif;
+
+	font-size : 25px;
+	font-weight : 500 ;
+	color : #000000	 ;
+}
+h4 {
+	font-family: 'Sriracha', cursive;
+}

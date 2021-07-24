@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Codeforces App</title>
+		<link rel= "stylesheet" href ="/app.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	  	<link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Rowdies:wght@700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Rowdies:wght@700&family=Sriracha&display=swap" rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+	
+	  <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  </head>
+	
+	
+	
+	
+
+	<% var rate = obj.data["result"][ (obj.data["result"].length) - 1 ]["newRating"] %>
+	
+	<% var mx = 0 %>
+	<% for(var i = 0; i <= (Number)(obj.data["result"] .length)-1 ; i ++ ){%>
+		<%if(obj.data["result"][ (Number)(i) ]["newRating"] > mx ){%>
+			<%mx = obj.data["result"][ (Number)(i) ]["newRating"] ;%>
+	<%}%>
+	<% }%>
+	
+	
+	<%// navbar %>
+	
+<nav class="navbar fixed-top navbar-dark  " style="background-color: #2c3e50;">
+	  
+	  
+	<a class="navbar-brand" href = "/" style = "font-family: 'Chilanka', cursive;">Home Page</a>
+  <div class = "container">
+	 
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="precalc" style = "font-family: 'Chilanka', cursive;">Want A Virtual Contest <span class="sr-only">(current)</span></a>
+      </li>
+	  </ul>
+	  <ul class="navbar-nav mr-auto navbar-right" >
+      <li class="nav-item active">
+        <a class="nav-link" href="precal" style = "font-family: 'Chilanka', cursive;">Find Problems of your desired difficulty<span class="sr-only">(current)</span></a>
+      </li>
+	  </ul>
+	</div>
+</nav>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div  >
+		<div class="jumbotron text-center text-white" style="background-color: 	SteelBlue;">
+		    <h2 class="display-4" style= "font-family: 'Sriracha', cursive;">Rating Information of User</h2>
+			<h2 >Username       :  <%= obj.username %></h2>
+		    <h2 >Current Rating :  <%= rate %></h2>
+			<h2 >Maximum Rating :  <%= mx %></h2>
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+
+<br> 
+
+	<div class = "container">
+		<% // graph %>
+			  <canvas id="chart" ></canvas>
+			  <script>
+			var ctx = document.getElementById('chart').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: 'line',
+				data: {
+					labels: <%- JSON.stringify(obj.xlabel) %>,
+					datasets: [{
+						label: 'Rating Curve',
+						data: <%- JSON.stringify(obj.ylabel) %>,
+						backgroundColor: 'rgba(153, 0, 255, 0.4)',
+						borderColor: 'rgba(102, 0, 102, 1)',
+						borderWidth: 1
+					}]
+				},
+				options: {
+					scales: {
+						yAxes: [{
+							ticks: {
+								beginAtZero: true
+							}
+						}]
+					}
+				}
+		  });
+		  </script>
+	</div>
+		
+	  
+	  
+	  
+	  
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+  <body>
+
+
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+
+
+
+
+
+
+
+
+<%- include("partials/footer") %>
